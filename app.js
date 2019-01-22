@@ -54,7 +54,18 @@ new Vue({
             return false;
         },
         specialAttack:function () {
-            
+            var damage=this.calculateDamage(20, 10);
+            this.monsterHealth -=damage;
+
+            if(this.checkWin())
+            {
+                return;
+            }
+
+            var damage=this.calculateDamage(12, 5);
+            this.playerHealth -=damage;
+
+            this.checkWin();
         },
         heal:function () {
             
